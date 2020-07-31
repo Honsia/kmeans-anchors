@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 from kmeans import kmeans, avg_iou
 
 # ANNOTATIONS_PATH = "./data/pascalvoc07-annotations"
-ANNOTATIONS_PATH = "./data/widerface-annotations"
-CLUSTERS = 25
-BBOX_NORMALIZE = True
+ANNOTATIONS_PATH = "/Users/lele/pro-lib/data/face-mask/xml"
+CLUSTERS = 6
+BBOX_NORMALIZE = False
 
 def show_cluster(data, cluster, max_points=2000):
 	'''
@@ -99,6 +99,7 @@ def load_dataset(path, normalized=True):
 
 print("Start to load data annotations on: %s" % ANNOTATIONS_PATH)
 data = load_dataset(ANNOTATIONS_PATH, normalized=BBOX_NORMALIZE)
+# data = load_dataset(ANNOTATIONS_PATH)
 
 print("Start to do kmeans, please wait for a moment.")
 out = kmeans(data, k=CLUSTERS)
